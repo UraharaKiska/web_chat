@@ -1,0 +1,22 @@
+{% extends 'chat/base.html' %}
+
+
+{% block content %}
+<div class="container">
+<div class="mx-auto my-5 my-sm-5 my-lg-5 p-3">
+    <br><br><br>
+    <form method="POST" class="form-horizontal">
+        <div class="form-group">
+            {% csrf_token %}
+            {% for f in form %}
+            <p><label for="{{ f.id_for_label }}">{{ f.label }}:</label>{{ f }}</p>
+            <div class = "alert-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Sign up</button>
+        </div>
+    </form>
+    </div>
+
+</div>
+
+    {% endblock %}
